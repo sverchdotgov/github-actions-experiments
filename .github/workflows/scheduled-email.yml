@@ -23,7 +23,7 @@ jobs:
     # https://github.com/marketplace/actions/ping-my-site
     - uses: Leocardoso94/is-my-site-up@v1.2
       with:
-        site: "examplesitethatdoesntexistreallyfoobar.com"
+        site: "example.com"
     # https://www.ravsam.in/blog/send-slack-notification-when-github-actions-fails/
     - uses: ravsamhq/notify-slack-action@v1
       if: always()
