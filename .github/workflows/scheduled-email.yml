@@ -1,0 +1,23 @@
+# .github/workflows/ping-test.yml
+name: Trigger Run of site ping test
+on:
+  schedule:
+    # Runs "at every 10th minute" (see https://crontab.guru)
+    - cron: '*/10 * * * *'
+jobs:
+  sitePingCheck:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    # https://github.com/marketplace/actions/ping-my-site
+    # https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions
+    # https://stackoverflow.com/questions/59191913/get-output-of-a-specific-step-in-github-actions
+    - uses: actions/is-my-site-up@v1.1
+      with:
+        site: "example.com"
+    # https://github.com/marketplace/actions/slack-notify
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}    
