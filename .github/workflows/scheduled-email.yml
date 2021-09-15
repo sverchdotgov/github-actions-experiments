@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # https://github.com/marketplace/actions/ping-my-site
-    - uses: actions/is-my-site-up@v1.1
+    - uses: actions/ping-my-site@v1.1
       with:
         site: "example.com"
     # https://www.ravsam.in/blog/send-slack-notification-when-github-actions-fails/
